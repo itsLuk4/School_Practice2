@@ -8,6 +8,8 @@ namespace Ulomek
 {
     class Ulomek
     {
+        public static int stUlomkov; //število objektov, ki jih bomo naredila iz tega razreda
+        //objektni podatek
         private int st; //stevec
         private int im; //imenovalec
         //lastnosti St in Im
@@ -27,6 +29,7 @@ namespace Ulomek
         {
             st = 1;
             im = 1;
+            stUlomkov++; // s to spremenljivko bomo preverjali koliko ulomkov
         }
 
         public Ulomek(int _st, int _im) //pretvorbeni/parametrični konstruktor 20:00 video
@@ -36,11 +39,13 @@ namespace Ulomek
                 im = 1;
             else
                 im = _im;
+            stUlomkov++;
         }
         public Ulomek(Ulomek _u1) // konstruktor
         {
             st = _u1.st;
             im = _u1.im;
+            stUlomkov++;
         }
         public void Izpisi() //objektna
         {
@@ -111,6 +116,8 @@ namespace Ulomek
             ul2.Im = 45;
             Ulomek.Okrajsaj(ul2); //Ulomek.Okrajsaj(parameter)
             Ulomek.Izpisi(ul2);
+            // primer klica staticnega podatka
+            Console.WriteLine(Ulomek.stUlomkov);
         }
     }
 }
